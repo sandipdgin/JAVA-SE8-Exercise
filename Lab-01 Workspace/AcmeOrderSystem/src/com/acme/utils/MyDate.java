@@ -6,68 +6,66 @@ public class MyDate {
 	 */
 
 	// Lab08-Encapsulation start
-	private byte day;	
+	private byte day;
 	private byte month;
 	private short year;
 	// Lab08-Encapsulation end
 
-	/*{
-		day = 1;
-		year = 2000;
-		month = 1;
-	}*/
-	
+	/*
+	 * { day = 1; year = 2000; month = 1; }
+	 */
+
 	// Lab08-Encapsulation start
-		public int getDay() {
-			return day;
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		if (valid(day, month, year)) {
+			this.day = (byte) day;
 		}
 
-		public void setDay(int day) {
-			if (valid(day, month, year)) {
-				this.day = (byte) day;
-			}
+	}
 
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		if (valid(day, month, year)) {
+			this.month = (byte) month;
 		}
 
-		public int getMonth() {
-			return month;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		if (valid(day, month, year)) {
+			this.year = (short) year;
 		}
+	}
 
-		public void setMonth(int month) {
-			if (valid(day, month, year)) {
-				this.month = (byte) month;
-			}
-
+	private boolean valid(int day, int month, int year) {
+		if (day > 31 || day < 1 || month > 12 || month < 1) {
+			System.out.println("Attempting to create a non-valid date" + month + "/" + day + "/" + year);
+			return false;
 		}
-
-		public int getYear() {
-			return year;
+		switch (month) {
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			return (day <= 30);
+		case 2:
+			return day <= 28 || (day == 29 && year % 4 == 0);
 		}
+		return true;
+	}
 
-		public void setYear(int year) {
-			if (valid(day, month, year)) {
-				this.year = (short)year;
-			}
-		}
-
-		private boolean valid(int day, int month, int year) {
-			 if (day > 31 || day < 1 || month > 12 || month < 1) {
-				 System.out.println("Attempting to create a non-valid date" + month + "/" + day + "/" + year);
-				 return false;
-			 }
-			 switch (month) {
-			 case 4:
-			 case 6:
-			 case 9:
-			 case 11:
-			 return (day <= 30);
-			 case 2:
-			 return day <= 28 || (day == 29 && year % 4 == 0);
-			 }
-		 return true;
-		 }
-
-		// Lab08-Encapsulation end
+	// Lab08-Encapsulation end
 
 	public MyDate() {
 
@@ -85,14 +83,14 @@ public class MyDate {
 
 	public void setDate(int m, int d, int y) {
 		// TODO set the MyDate attributes with m, d, and y values here!
-		/*day = d;
-		year = y;
-		month = m;*/
+		/*
+		 * day = d; year = y; month = m;
+		 */
 		if (valid(d, m, y)) {
-			 day = (byte) d;
-			 year = (short) y;
-			 month = (byte) m;
-		 }
+			day = (byte) d;
+			year = (short) y;
+			month = (byte) m;
+		}
 	}
 
 	public static void leapYears() {
@@ -103,6 +101,14 @@ public class MyDate {
 
 	}
 
-	
+	public boolean equals(Object o) {
+		if (o instanceof MyDate) {
+			MyDate d = (MyDate) o;
+			if ((d.day == day) && (d.month == month) && (d.year == year)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 }

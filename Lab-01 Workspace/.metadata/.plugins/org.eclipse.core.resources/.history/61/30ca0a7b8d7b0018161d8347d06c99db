@@ -12,17 +12,8 @@ public class Order {
 	private MyDate orderDate;
 	private double orderAmount = 0.00;
 	private String customer;
-	//private String product;
+	private String product;
 	private int quantity;
-	
-	private Good product;
-
-	public void setProduct(Good product) {
-		this.product = product;
-	}
-	public Good getProduct() {
-		return product;
-	}
 
 	public MyDate getOrderDate() {
 		return orderDate;
@@ -52,6 +43,14 @@ public class Order {
 		this.customer = customer;
 	}
 
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+
 	public int getQuantity() {
 		return quantity;
 	}
@@ -74,14 +73,7 @@ public class Order {
 	// static double taxRate;
 	public static double taxRate = 0.05;
 
-	/*public Order(MyDate d, double amt, String c, String p, int q) {
-		orderDate = d;
-		orderAmount = amt;
-		customer = c;
-		product = p;
-		quantity = q;
-	}*/
-	public Order(MyDate d, double amt, String c, Good p, int q) {
+	public Order(MyDate d, double amt, String c, String p, int q) {
 		orderDate = d;
 		orderAmount = amt;
 		customer = c;
@@ -107,13 +99,13 @@ public class Order {
 	}
 
 	// bonus lab
-	/*public Order(MyDate d, double amt, String c) {
+	public Order(MyDate d, double amt, String c) {
 		orderDate = d;
 		orderAmount = amt;
 		customer = c;
 		product = "Anvil";
 		quantity = 1;
-	}*/
+	}
 
 	// lab 6
 	public char jobSize() {

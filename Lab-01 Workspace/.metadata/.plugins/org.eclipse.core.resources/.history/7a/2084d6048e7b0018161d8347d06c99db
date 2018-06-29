@@ -52,6 +52,12 @@ public class Order {
 		this.customer = customer;
 	}
 
+	
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+
 	public int getQuantity() {
 		return quantity;
 	}
@@ -107,13 +113,13 @@ public class Order {
 	}
 
 	// bonus lab
-	/*public Order(MyDate d, double amt, String c) {
+	public Order(MyDate d, double amt, String c) {
 		orderDate = d;
 		orderAmount = amt;
 		customer = c;
 		product = "Anvil";
 		quantity = 1;
-	}*/
+	}
 
 	// lab 6
 	public char jobSize() {
