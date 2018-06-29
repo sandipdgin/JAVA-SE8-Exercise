@@ -1,0 +1,5 @@
+package com.acme.domain;
+
+public class Solid extends Good {
+
+}
