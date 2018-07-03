@@ -15,16 +15,12 @@ public class Order {
 	//private String product;
 	private int quantity;
 	
-	//private Good product;
-	private Product product;
+	private Good product;
 
 	public void setProduct(Good product) {
 		this.product = product;
 	}
-	/*public Good getProduct() {
-		return product;
-	}*/
-	public Product getProduct() {
+	public Good getProduct() {
 		return product;
 	}
 
@@ -85,14 +81,7 @@ public class Order {
 		product = p;
 		quantity = q;
 	}*/
-	/*public Order(MyDate d, double amt, String c, Good p, int q) {
-		orderDate = d;
-		orderAmount = amt;
-		customer = c;
-		product = p;
-		quantity = q;
-	}*/
-	public Order(MyDate d, double amt, String c, Product p, int q) {
+	public Order(MyDate d, double amt, String c, Good p, int q) {
 		orderDate = d;
 		orderAmount = amt;
 		customer = c;

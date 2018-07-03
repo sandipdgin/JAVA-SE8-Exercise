@@ -1,6 +1,6 @@
 package com.acme.domain;
 
-public abstract class Good implements Product {
+public class Good {
 	public enum UnitOfMeasureType {LITER, GALLON, CUBIC_METER,CUBIC_FEET}
 	private String name;
 	private int modelNumber;
@@ -21,12 +21,9 @@ public abstract class Good implements Product {
 	public String toString() {
 		return name + "-" + modelNumber;
 	}
-	/*public double volume() {
+	public double volume() {
 		return 0.0;
-	}*/
-	
-	public abstract double volume();
-	
+	}
 	public double weight() {
 		return volume() * weightPerUofM;
 	}

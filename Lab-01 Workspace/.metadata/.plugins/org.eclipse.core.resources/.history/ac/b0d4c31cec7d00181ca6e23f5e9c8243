@@ -1,6 +1,5 @@
 package com.acme.testing;
 
-import com.acme.domain.Service;
 import com.acme.domain.Good.UnitOfMeasureType;
 import com.acme.domain.Order;
 import com.acme.domain.Solid;
@@ -17,9 +16,6 @@ public class TestOrders {
 
 		MyDate date2 = new MyDate(4, 10, 2008);
 		Order balloons = new Order(date2, 1000.00, "Bugs Bunny", "Balloon", 125);*/
-		
-		//Good g = new Good("Acme Earthquake Pills", 1304, 0.15, UnitOfMeasureType.CUBIC_FEET, false, 1);
-
 		
 		MyDate date1 = new MyDate(1, 20, 2008);
 		Solid s1 = new Solid("Acme Anvil", 1668, 0.3, UnitOfMeasureType.CUBIC_METER, false, 500, 0.25, 0.3);
