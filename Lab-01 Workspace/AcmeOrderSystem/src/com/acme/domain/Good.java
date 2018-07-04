@@ -25,13 +25,6 @@ public abstract class Good implements Product {
 		return 0.0;
 	}*/
 	
-	public abstract double volume();
-	
-	public double weight() {
-		return volume() * weightPerUofM;
-	}
-
-	
 	public String getName() {
 		return name;
 	}
@@ -68,5 +61,11 @@ public abstract class Good implements Product {
 	}
 	public void setWeightPerUofM(double weightPerUofM){
 		this.weightPerUofM = weightPerUofM;
+	}
+	
+	public abstract double volume();
+	
+	public double weight() {
+		return volume() * weightPerUofM;
 	}
 }

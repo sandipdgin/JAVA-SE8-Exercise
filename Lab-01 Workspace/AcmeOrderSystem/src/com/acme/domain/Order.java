@@ -17,8 +17,42 @@ public class Order {
 	
 	//private Good product;
 	private Product product;
+	
+	/*public Order(MyDate d, double amt, String c, String p, int q) {
+		orderDate = d;
+		orderAmount = amt;
+		customer = c;
+		product = p;
+		quantity = q;
+	}*/
+	/*public Order(MyDate d, double amt, String c, Good p, int q) {
+		orderDate = d;
+		orderAmount = amt;
+		customer = c;
+		product = p;
+		quantity = q;
+	}*/
+	
+	
+	/*public Order(MyDate d, double amt, String c, Product s3, int q) {
+		orderDate = d;
+		orderAmount = amt;
+		customer = c;
+		product = s3;
+		quantity = q;
+	}*/
+	
+	// lab 14 - start
+	public Order(MyDate d, double amt, String c, Product s3, int q) {
+		setOrderDate(d);
+		orderAmount = amt;
+		customer = c;
+		product = s3;
+		quantity = q;
+	}
+	// lab 14 - end
 
-	public void setProduct(Good product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 	/*public Good getProduct() {
@@ -32,9 +66,19 @@ public class Order {
 		return orderDate;
 	}
 
-	public void setOrderDate(MyDate orderDate) {
+	/*public void setOrderDate(MyDate orderDate) {
 		this.orderDate = orderDate;
+	}*/
+	
+	// lab 14 - start
+	public void setOrderDate(MyDate orderDate) {
+		if(isHoliday(orderDate)) {
+			System.out.println("Order date, " + orderDate + ", cannot be set to a holiday!");
+		} else {
+			this.orderDate = orderDate;
+		}		
 	}
+	// lab 14 - end
 
 	public double getOrderAmount() {
 		return orderAmount;
@@ -78,27 +122,7 @@ public class Order {
 	// static double taxRate;
 	public static double taxRate = 0.05;
 
-	/*public Order(MyDate d, double amt, String c, String p, int q) {
-		orderDate = d;
-		orderAmount = amt;
-		customer = c;
-		product = p;
-		quantity = q;
-	}*/
-	/*public Order(MyDate d, double amt, String c, Good p, int q) {
-		orderDate = d;
-		orderAmount = amt;
-		customer = c;
-		product = p;
-		quantity = q;
-	}*/
-	public Order(MyDate d, double amt, String c, Product p, int q) {
-		orderDate = d;
-		orderAmount = amt;
-		customer = c;
-		product = p;
-		quantity = q;
-	}
+	
 
 	public String toString() {
 		return quantity + " ea. " + product + " for " + customer;
@@ -160,5 +184,44 @@ public class Order {
 		return total;
 
 	}
+	
+	// lab 12 - start
+	private static Rushable rushable;
+	
+	public static Rushable getRushable() {
+		return rushable;
+	}
+	public static void setRushable(Rushable rushable) {
+		Order.rushable = rushable;
+	}
+	
+	public boolean isPriorityOrder() {
+		boolean priorityOrder = false;
+		if( rushable != null ) {
+			priorityOrder = rushable.isRushable(orderDate, orderAmount);
+		}
+		return priorityOrder;
+	}
+	
+	// lab 12 - end
+	
+	
+	// lab 14 - start
+	private boolean isHoliday(MyDate proposedDate) {
+		boolean result = false;
+		for (MyDate holiday : MyDate.getHolidays()) {
+			if( holiday.equals(proposedDate) ) {
+				result = true;
+			}
+		}
+		return result;
+	}
+	
+	/*public void setOrderDate(MyDate orderDate){
+		
+	}*/
+	
+	//lab 14 - end
+	
 
 }
