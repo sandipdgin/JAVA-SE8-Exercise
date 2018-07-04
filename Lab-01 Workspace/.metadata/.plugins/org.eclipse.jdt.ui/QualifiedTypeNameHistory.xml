@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.acme.utils.MyDate"/>
 <fullyQualifiedTypeName name="com.acme.domain.Solid"/>
+<fullyQualifiedTypeName name="com.acme.utils.MyDate"/>
 <fullyQualifiedTypeName name="com.acme.domain.Good.UnitOfMeasureType"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
 </qualifiedTypeNameHistroy>
