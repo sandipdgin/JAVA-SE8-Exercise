@@ -1,5 +1,6 @@
 package com.acme.domain;
 
+import com.acme.utils.HolidayOrdersNotAllowedException;
 import com.acme.utils.MyDate;
 
 public class Order {
@@ -43,14 +44,32 @@ public class Order {
 	}*/
 	
 	// lab 14 - start
-	public Order(MyDate d, double amt, String c, Product s3, int q) {
+	/*public Order(MyDate d, double amt, String c, Product s3, int q) {
 		setOrderDate(d);
 		orderAmount = amt;
 		customer = c;
 		product = s3;
 		quantity = q;
-	}
+	}*/
 	// lab 14 - end
+	
+	
+	// lab 17 - start
+	public Order(MyDate d, double amt, String c, Product s3, int q) {
+		try {
+			setOrderDate(d);
+		} catch (HolidayOrdersNotAllowedException e) {
+			System.out.println("The order date for an order cannot be a holiday! Application closing.");
+			System.exit(0);
+		}
+		
+		orderAmount = amt;
+		customer = c;
+		product = s3;
+		quantity = q;
+	}
+	// bonus lab remaining
+	// lab 17 - end
 
 	public void setProduct(Product product) {
 		this.product = product;
@@ -71,13 +90,13 @@ public class Order {
 	}*/
 	
 	// lab 14 - start
-	public void setOrderDate(MyDate orderDate) {
+	/*public void setOrderDate(MyDate orderDate) {
 		if(isHoliday(orderDate)) {
 			System.out.println("Order date, " + orderDate + ", cannot be set to a holiday!");
 		} else {
 			this.orderDate = orderDate;
 		}		
-	}
+	}*/
 	// lab 14 - end
 
 	public double getOrderAmount() {
@@ -223,5 +242,15 @@ public class Order {
 	
 	//lab 14 - end
 	
+	//lab 17 - start
+	public void setOrderDate(MyDate orderDate) throws HolidayOrdersNotAllowedException {
+		if(isHoliday(orderDate)) {
+			System.out.println("Order date, " + orderDate + ", cannot be set to a holiday!");
+			throw new HolidayOrdersNotAllowedException(orderDate);
+		} else {
+			this.orderDate = orderDate;
+		}		
+	}
+	//lab 17 - end
 
 }

@@ -1,5 +1,8 @@
 package com.acme.testing;
 
+import java.util.Collections;
+import java.util.List;
+
 import com.acme.domain.Good;
 import com.acme.domain.Liquid;
 import com.acme.domain.Solid;
@@ -24,5 +27,25 @@ public class TestGoods {
 		System.out.println("Is " + x + " flammable?  " + x.isFlammable());
 		x = paint;
 		System.out.println("Is " + x + " flammable?  " + x.isFlammable());
+		
+		//lab 15 start
+		System.out.println(Good.getCatalog());
+		
+		Good.getCatalog().remove(1);
+		Solid toaster = new Solid("Acme Toaster", 1755, 0.75, UnitOfMeasureType.CUBIC_FEET, false, 1.0, 1.0, 1.0);
+		Good.getCatalog().add(toaster);
+		Good.getCatalog().add(toaster);
+		System.out.println(Good.getCatalog());
+		
+		System.out.println("Flammables products: " + Good.flammablesList());
+		//lab 15 end
+		
+		// lab 16 - start
+		Collections.sort((List<Good>) Good.getCatalog());
+		System.out.println(Good.getCatalog());
+		
+		// bonus lab remaining
+		
+		// lab 16 - end
 	}
 }

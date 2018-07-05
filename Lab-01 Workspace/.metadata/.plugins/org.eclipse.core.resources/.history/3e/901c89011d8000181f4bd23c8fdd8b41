@@ -1,0 +1,8 @@
+package com.acme.utils;
+import com.acme.utils.MyDate;
+public class HolidayOrdersNotAllowedException {
+	
+	public HolidayOrdersNotAllowedException(MyDate date){
+		super("Orders are not allowed to be created on: " + date);
+	}
+}

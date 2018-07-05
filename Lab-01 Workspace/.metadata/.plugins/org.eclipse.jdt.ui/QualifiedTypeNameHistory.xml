@@ -4,4 +4,13 @@
 <fullyQualifiedTypeName name="com.acme.utils.MyDate"/>
 <fullyQualifiedTypeName name="com.acme.domain.Good.UnitOfMeasureType"/>
 <fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.acme.utils.HolidayOrdersNotAllowedException"/>
 </qualifiedTypeNameHistroy>
